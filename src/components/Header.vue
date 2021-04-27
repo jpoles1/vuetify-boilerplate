@@ -1,20 +1,20 @@
 <template>
 	<div>
-		<v-navigation-drawer v-model="drawer" app clipped mobile-break-point="600" width="180" v-if="$vuetify.breakpoint.xsOnly">
+		<v-navigation-drawer app v-model="drawer" clipped mobile-breakpoint="600" width="180" v-if="$vuetify.breakpoint.xsOnly">
 			<v-list shaped>
-				<v-list-tile v-for="(navEntry, navIndex) in navList" :key="navIndex" :to="navEntry.url" @click="drawer = false" :draggable="false">
-					<v-list-tile-action v-if="navEntry.icon" style="margin-right: 0px">
+				<v-list-item v-for="(navEntry, navIndex) in navList" :key="navIndex" :to="navEntry.url" @click="drawer = false" :draggable="false">
+					<v-list-item-action v-if="navEntry.icon" style="margin-right: 0px">
 						<v-icon>{{ navEntry.icon || "grip-lines" }}</v-icon>
-					</v-list-tile-action>
-					<v-list-tile-content>
-						<v-list-tile-title style="font-size: 120%">
+					</v-list-item-action>
+					<v-list-item-content>
+						<v-list-item-title style="font-size: 120%">
 							{{ navEntry.name }}
-						</v-list-tile-title>
-					</v-list-tile-content>
-				</v-list-tile>
+						</v-list-item-title>
+					</v-list-item-content>
+				</v-list-item>
 			</v-list>
 		</v-navigation-drawer>
-		<v-toolbar app>
+		<v-toolbar>
 			<span v-if="$vuetify.breakpoint.xsOnly">
 				<div @click="drawer = !drawer">
 					<v-icon>fa-bars</v-icon>
